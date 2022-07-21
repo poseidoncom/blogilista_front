@@ -7,4 +7,12 @@
     padding: 10px;
     margin-bottom: 10px;
   }
+.blog {
+  border-style: solid;
+  color:rgb(208, 132, 33);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
 
