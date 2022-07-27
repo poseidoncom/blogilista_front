@@ -12,9 +12,9 @@ const getAll = () => {
   return request.then(response => response.data)
 }
 
-const create = async blogObject =>{
+const create = async blogObject => {
   const config = {
-    headers: {Authorization: token},
+    headers: { Authorization: token },
   }
 
   const response = await axios.post(baseUrl, blogObject, config)
@@ -23,7 +23,7 @@ const create = async blogObject =>{
 
 const update = async (id, blogObject) => {
   const config = {
-    headers: {Authorization: token},
+    headers: { Authorization: token },
   }
 
   const response = await axios.put(`${baseUrl}/${id}`, blogObject, config)
