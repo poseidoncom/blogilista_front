@@ -20,11 +20,11 @@ const Blog = ({ blog, like, remove, user }) => {
             <tr><td><button onClick={toggleVisibility}>{visible ? 'hide': 'show'}</button></td></tr>
           </div>
           <div style={showWhenVisible} className="hidedContent">
-            <tr><td>likes: {blog.likes}</td><td><button onClick={like}>like</button></td></tr>
+            <tr><td>likes: {blog.likes}</td><td><button id='like-button' onClick={like}>like</button></td></tr>
             <tr><td>{blog.url}</td></tr>
             <tr><td>added by: {blog.user.name}</td></tr>
             {user.username === blog.user.username ?
-              <tr><td><button onClick={remove}>remove</button></td></tr>:null }
+              <tr><td><button id ='remove-button' onClick={remove}>remove</button></td></tr>:null }
           </div>
         </tbody>
       </table>

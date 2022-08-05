@@ -38,6 +38,7 @@ const App = () => {
       window.localStorage.setItem(
         'loggedBlogappUser', JSON.stringify(user)
       )
+      blogService.setToken(user.token)
       setUser(user)
       setUsername('')
       setPassword('')
@@ -58,6 +59,10 @@ const App = () => {
   const remove = async (id) => {
     await blogService.remove(id)
     setBlogs(blogs.filter(blog => blog.id !== id))
+    setErrorMessage('blog removed')
+    setTimeout(() => {
+      setErrorMessage(null)
+    }, 5000)
   }
 
   const addBlog = async (blogObject) => {
@@ -79,6 +84,7 @@ const App = () => {
         <form onSubmit={handleLogin}>
           username
           <input
+            id='username'
             type="text"
             value={username}
             onChange={({ target }) => setUsername(target.value)}
@@ -86,11 +92,12 @@ const App = () => {
           <br/>
           password
           <input
+            id='password'
             type="password"
             value={password}
             onChange={({ target }) => setPassword(target.value)}
           />
-          <button type="submit">login</button>
+          <button id='login-button' type="submit">login</button>
         </form>
       </div>
     )
